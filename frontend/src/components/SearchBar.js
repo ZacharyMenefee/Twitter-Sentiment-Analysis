@@ -1,11 +1,9 @@
-
 import { React, Component } from 'react';
-import axios from 'axios';
 
 class SearchBar extends Component {
     constructor(props){
         super(props);
-        this.state = {value: '', message: ''};
+        this.state = {value: ''};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);  
@@ -15,20 +13,10 @@ class SearchBar extends Component {
         this.setState({value: event.target.value});
     }
 
-    async handleSubmit(event) {
+    handleSubmit(event) {
         event.preventDefault();
-        try{
-            let res = await axios.post('http://localhost:4000/post', {
-                'value': this.state.value
-            })
-            
-            if (res.status === 200){
-                console.log(res);
-        }
-        }catch(err){
-            console.log(err)
+        this.props.results(this.state.value);
     }
-}
 
     render() {
         return(

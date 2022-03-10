@@ -1,11 +1,10 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import SearchBar from "./components/SearchBar";
+import TweetList from "./components/TweetList";
 
 function App() {
   return (
-    <SearchBar />
+    <TweetList />
   );
 }
 
