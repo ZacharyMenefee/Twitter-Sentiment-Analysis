@@ -70,7 +70,7 @@ module.exports.sentimentAnalysis = async (req, res, next) => {
 
     for (const [i, result] of results.entries()) {
         if (result.error === undefined) {
-          storedResults.push([req.tweets[i], result.sentiment, result.confidenceScores]);
+          storedResults.push({id: req.tweets[i].id, tweet: req.tweets[i].text, sentiment: result.sentiment, confidence: result.confidenceScores});
         } else {
           console.error("Encountered an error:", result.error);
         }
@@ -78,3 +78,5 @@ module.exports.sentimentAnalysis = async (req, res, next) => {
     req.storedResults = storedResults;
     next();
 }
+
+// storedResults.push({id: req.tweets[i].id, tweet: req.tweets[i].tweet, sentiment: result.sentiment, confidence: result.confidenceScores});
