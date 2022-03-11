@@ -36,7 +36,7 @@ class TweetList extends Component {
         return(
             <div>
                 <SearchBar results={this.fetchResults}/>
-                <div className='Tweetlist-tweets'>
+                <div className='d-flex Tweetlist-tweets'>
                     {tweets.map(t => (
                         <div className='Tweetlist-object'>
                         <TwitterTweetEmbed

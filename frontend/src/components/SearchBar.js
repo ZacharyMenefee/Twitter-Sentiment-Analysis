@@ -1,5 +1,6 @@
 import { React, Component } from 'react';
-
+import '../styles/SearchBar.css'
+import { Navbar, Form, FormControl, Button, Nav} from "react-bootstrap";
 class SearchBar extends Component {
     constructor(props){
         super(props);
@@ -20,16 +21,27 @@ class SearchBar extends Component {
 
     render() {
         return(
-            <div>
-            <h1>Twitter Sentiment Analysis</h1>
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Search:
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Submit"/>
-            </form>
-            </div>
+            <Navbar className='d-flex flex-row' bg="dark" expand="sm" variant="dark">
+                    <Navbar.Brand id='app-name'>Twitter Sentiment Analysis</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+                    <Navbar.Collapse id='response-navbar-nav'>
+                    <Nav id='search' className='d-flex'>
+                    <Form id='search-bar' className='d-flex'>
+                        <FormControl
+                            onChange={this.handleChange}
+                            value={this.state.value}
+                            type='text'
+                            placeholder='Search'
+                        />
+                        <Button id='submit-btn' onClick={this.handleSubmit} variant="outline-info">
+                            Search
+                        </Button>
+                    </Form>
+                    </Nav>
+                    </Navbar.Collapse>
+                    
+            </Navbar>
+                
         )
     }
 }
