@@ -11,7 +11,7 @@ const twitterClient = new TwitterApi(config.twitter.token);
 
 module.exports.getTweets = async (req, res, next) => {
     const value = req.body.value;
-    const searchObject = await twitterClient.v2.search(`${value}  lang:en`);
+    const searchObject = await twitterClient.v2.search(`${value}  lang:en -is:retweet`);
     const tweets = searchObject.tweets;
 
     // const tweets = [
