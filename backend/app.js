@@ -1,24 +1,27 @@
 const express = require('express');
-const axios = require('axios');
-const {TwitterClient} = require('twitter-api-client')
-require('dotenv').config()
+const config = require('./config');
+const cors = require('cors');
+const {getTweets, sentimentAnalysis} = require('./middleware')
 
 const app = express();
-const port = 3000;
+const PORT = config.web.port;
+
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(cors());
+
+const corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200,
+};
 
 
-const twitterClient = new TwitterClient({
-  apiKey: process.env.TWITTER_API_KEY,
-  apiSecret: process.env.TWITTER_API_SECRET,
-  accessToken: process.env.TWITTER_ACCESS_TOKEN,
-  accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-})
-
-axious.get('')
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get("/", (req, res) => {
+  res.status(200).json({ message: 'Hello from Express Server!' });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+app.post("/post", cors(corsOptions), getTweets, sentimentAnalysis, (req, res) => {
+  res.status(200).json(req.storedResults);
 });
+
+app.listen(PORT, () => console.log(`Server Running on Port ${PORT}`));

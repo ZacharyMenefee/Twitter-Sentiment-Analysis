@@ -1,0 +1,22 @@
+#search {
+    margin-left: auto;
+    padding-right: 1em;
+}
+
+#app-name{
+    padding-left: 1em;
+}
+
+#search-bar{
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+}
+
+#hamburger{
+    margin-right: .5em;
+}
+
+#submit-btn{
+    margin-left: .5em;
+}
