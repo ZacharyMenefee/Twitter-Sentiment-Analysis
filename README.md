@@ -16,3 +16,4 @@ Some additional work to be completed on the project is as follows:
 - Unique IDs for components in order to reduce errors. 
 - More adequate backend error handling and form validation.
 - Optimizing rendering and performance speed.
+- Additionally, a refactor from Javascript to Typescript might be in order.
