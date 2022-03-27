@@ -2,6 +2,7 @@ import { React, Component } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import Tweet from './Tweet';
+import '../styles/TweetList.css'
 import { TwitterTweetEmbed} from 'react-twitter-embed';
 
 class TweetList extends Component {
@@ -36,18 +37,19 @@ class TweetList extends Component {
         return(
             <div>
                 <SearchBar results={this.fetchResults}/>
-                <div className='d-flex Tweetlist-tweets'>
+                <div className='d-flex flex-column Tweetlist-tweets'>
                     {tweets.map(t => (
-                        <div className='Tweetlist-object'>
-                        <TwitterTweetEmbed
-                            tweetId={t.id}
-                        />
-                        <Tweet key={t.id}
+                        <div className='d-flex justify-content-center Tweetlist-object'>
+                        <Tweet className='Tweetlist-scores' key={t.id}
                         tweet={t.tweet}
                         sentiment={t.sentiment}
                         confidence={t.confidence}
-                    
                         />
+                        <div className='embed-container'>
+                        <TwitterTweetEmbed
+                            tweetId={t.id}
+                        />
+                            </div>
                         </div>)
                     )}
                 </div>
