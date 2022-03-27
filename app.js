@@ -6,7 +6,7 @@ const {getTweets, sentimentAnalysis} = require('./middleware')
 // const { userValidationRules, validate } = require('./validator.js')
 
 const app = express();
-const PORT = config.web.port || 4000;
+const PORT = process.env.PORT || 4000;
 
 app.use(express.static(path.resolve(__dirname, './frontend/build')));
 app.use(express.json());

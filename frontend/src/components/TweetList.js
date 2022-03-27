@@ -16,7 +16,7 @@ class TweetList extends Component {
 
     async fetchResults(value) {
         try{
-            let res = await axios.post('http://localhost:4000/post', {
+            let res = await axios.post('/post', {
                 'value': value,
             });
             if (res.status === 200){
