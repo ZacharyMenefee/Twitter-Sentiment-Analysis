@@ -7,6 +7,7 @@ const {getTweets, sentimentAnalysis} = require('./middleware')
 const app = express();
 const PORT = config.web.port;
 
+app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
