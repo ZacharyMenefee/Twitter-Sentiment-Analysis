@@ -1,11 +1,14 @@
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+}
+
 const { TextAnalyticsClient, AzureKeyCredential } = require('@azure/ai-text-analytics');
 const { TwitterApi } = require('twitter-api-v2');
 const ExpressError = require('./utils/ExpressError');
-const config = require('./config');
 const { body, validationResult } = require('express-validator');
 
-const azureClient = new TextAnalyticsClient(config.azure.url, new AzureKeyCredential(config.azure.key));
-const twitterClient = new TwitterApi(config.twitter.token);
+const azureClient = new TextAnalyticsClient(process.env.AZURE_URL, new AzureKeyCredential(process.env.AZURE_KEY));
+const twitterClient = new TwitterApi(process.env.TWITTER_TOKEN);
 
 
 // module.exports.userValidationRules = () => {
