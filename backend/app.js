@@ -1,11 +1,14 @@
 const express = require('express');
+const path = require('path');
 const config = require('./config');
 const cors = require('cors');
 const {getTweets, sentimentAnalysis} = require('./middleware')
+// const { userValidationRules, validate } = require('./validator.js')
 
 const app = express();
-const PORT = config.web.port;
+const PORT = config.web.port || 4000;
 
+app.use(express.static(path.resolve(__dirname, './frontend/build')));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
@@ -14,11 +17,6 @@ const corsOptions = {
     origin: "*",
     optionsSuccessStatus: 200,
 };
-
-
-app.get("/", (req, res) => {
-  res.status(200).json({ message: 'Hello from Express Server!' });
-});
 
 app.post("/post", cors(corsOptions), getTweets, sentimentAnalysis, (req, res) => {
   res.status(200).json(req.storedResults);

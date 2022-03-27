@@ -1,0 +1,30 @@
+.Tweetlist-object{
+    flex-direction: column;
+}
+
+.embed-container{
+    width: 100%;
+}
+
+@media (min-width: 576px){
+    .embed-container{
+        width: 50%;
+        align-self: center;
+    }
+}
+    
+
+@media (min-width: 814px){
+    .Tweetlist-object{
+        flex-direction: row;
+    }
+
+    .Tweet{
+        margin-right: 2rem;
+        margin-left: 2rem;
+    }
+
+    .embed-container{
+        width: 50%;
+    }
+}
