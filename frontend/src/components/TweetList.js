@@ -15,6 +15,9 @@ class TweetList extends Component {
     }
 
     async fetchResults(value) {
+        if(this.state.tweets.length > 0){
+            this.setState({tweets: []});
+        }
         try{
             let res = await axios.post('/post', {
                 'value': value,
@@ -25,7 +28,6 @@ class TweetList extends Component {
                     tweets: [...tweets],
                 });
             };
-            console.log(this.state.tweets);
         }catch(err){
             alert(err)
             console.log(err)
