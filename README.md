@@ -1,6 +1,6 @@
 # Getting Started with my Twitter Sentiment Analysis Application
 
-In light of basic development for this project being finished I wanted to update the readme file to represent changes that have been made. Twitter Sentiment Analysis at a base level is a simple web application to provide parsed results from the Azure Sentiment Analysis API based on recieved twitter data queried 10 tweets at a time through recent searches. This project was completed as a capstone project for the Code Louisville Program's Javascript cohort and is currently being hosted here https://code-louisville.herokuapp.com/.  In that vein, it contains the following features:
+In light of basic development for this project being finished I wanted to update the readme file to represent changes that have been made. Twitter Sentiment Analysis at a base level is a simple web application to provide parsed results from the Azure Sentiment Analysis API based on recieved twitter data queried 10 tweets at a time through recent searches. This project was completed as a capstone project for the Code Louisville Program's Javascript cohort and is currently being hosted here. In that vein, it contains the following features:
 
 - Retrieve data from an external API and display data in your app (such as with fetch() or with AJAX) -> Achieved to fetch data from my own API using an call through the Axios library, all calls to Twitter and Azure use external clients on the server side.
 
@@ -18,4 +18,3 @@ Some additional work to be completed on the project is as follows:
 - Optimizing rendering and performance speed.
 - Additionally, a refactor from Javascript to Typescript might be in order.
 
-In order to use this application, you need to cd into the frontend folder, create a production build, then run npm start in the root folder however it is necessary to supply the application with an API key, that is why I recommend utilizing my production build hosted at https://code-louisville.herokuapp.com/.
